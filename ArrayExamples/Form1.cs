@@ -12,6 +12,8 @@ namespace ArrayExamples
 {
     public partial class Form1 : Form
     {
+        int[] numbers = new int[] { 1, 2, 3, 4, 5 };
+
         public Form1()
         {
             InitializeComponent();
@@ -19,19 +21,18 @@ namespace ArrayExamples
 
         private void runButton_Click(object sender, EventArgs e)
         {
-            int[] numbers = new int[] { 1, 2, 3, 4, 5 };
-
             /// 1. Add 1 to each value in given array and display
             /// to the screen
             /// 
             /// Sample Output:
             /// 2 3 4 5 6 
+            q1Output.Text = "";
 
             for (int i = 0; i < numbers.Length; i++)
             {
-
+                numbers[i]++;
+                q1Output.Text += $"{numbers[i]} ";
             }
-
 
             /// 2. Sum all the values in the given array and 
             /// display result
@@ -39,7 +40,14 @@ namespace ArrayExamples
             /// Sample Output:
             /// The sum is 20
 
+            int sum = 0;
 
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                sum = sum + numbers[i]; // sum += numbers[i]
+            }
+
+            q2Output.Text = $"The sum is {sum}";
 
             /// 3. Perform the following on the given array, then 
             /// display the updated array values.
@@ -53,6 +61,20 @@ namespace ArrayExamples
             /// 
             /// Sample Output
             /// -6 8 24 6 5
+
+            numbers[1] += 5;
+            numbers[2] = numbers[2] * numbers[4];
+            numbers[0] = numbers[0] - numbers[1];
+
+            int temp = numbers[3];
+
+            numbers[3] = numbers[4];
+            numbers[4] = temp;
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                q3Output.Text += $"{numbers[i]} ";
+            }
 
 
         }
